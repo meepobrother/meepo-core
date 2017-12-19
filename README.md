@@ -1,44 +1,51 @@
-## imeepos angular template
+## 用法
 
 ```sh
-git remote add origin https://github.com/meepobrother/imeepos-ng-template.git
-git push -u origin master
+yarn add meepo-core
 ```
 
-
-### 用法
-
-```sh
-git clone https://github.com/meepobrother/imeepos-ng-template.git my-app
-cd my-app
-yarn 
-// 或者
-npm install
-```
-
-### 发布包到npm
-
-```ts
-// 删除mac自带后缀文件
-find ./ -name ".DS_Store" | xargs rm -rf
-// 1: 更改package.json中的name为要发布的名字
-npm run build && npm publish
-```
-
-### 使用发布的包
-
-```ts
-npm install --save 包名
-```
-
-
-```ts
-import { 模块 } from {包名}
+```html
+<core-root>
+    <!-- 任何东西 -->
+</core-root>
 ```
 
 ```ts
-"rollup": "^0.43.0",
-"rollup-plugin-commonjs": "^8.0.2",
-"rollup-plugin-includepaths": "0.2.2",
-"rollup-plugin-node-resolve": "^3.0.0"
+import { CoreService } from 'meepo-core';
+
+
+export class ExampleComponent{
+    constructor(
+        public core: CoreService
+    ){}
+
+    doSometing(){
+        // 显示loading
+        this.core.showLoading({title: 'loading'});
+        this.core.closeLoading();
+
+        // 显示toast
+        this.core.showToast({title: 'toast'});
+        this.core.closeToast();
+
+        // 显示alert
+        this.core.showAlert({title: '标题', content: '内容'});
+        this.core.closeAlert();
+
+        // 显示confirm
+        this.core.showConfirm({title: '标题', content: '内容'})；
+        this.core.closeConfirm();
+
+        // 设置标题
+        this.core.app$.next({
+            title: '页面标题',
+            share: {
+                title: '分享标题',
+                icon: '分享图标',
+                content: '分享内容',
+                link: '分享链接'
+            }
+        })
+    }
+}
 ```
