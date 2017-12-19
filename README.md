@@ -1,5 +1,7 @@
 ## 用法
 
+- 集成移动端基础核心功能, weui, toast, loading, alert, confirm, share ...
+
 ```sh
 yarn add meepo-core
 ```
