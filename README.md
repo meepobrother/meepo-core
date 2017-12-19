@@ -11,8 +11,10 @@ yarn add meepo-core
 ```
 
 ```ts
-import { CoreService } from 'meepo-core';
+// 引入
+import { MeepoCoreModule } from 'meepo-core';
 
+import { CoreService } from 'meepo-core';
 
 export class ExampleComponent{
     constructor(

@@ -30,4 +30,4 @@ const CoreComponents: any[] = [
         CoreService
     ],
 })
-export class CoreModule { }
+export class MeepoCoreModule { }

@@ -1,4 +1,4 @@
-export { CoreModule } from './core.module';
+export { MeepoCoreModule } from './core.module';
 export { CoreService } from './core.service';
 
 export { CoreAlertComponent } from './core-alert/core-alert';
