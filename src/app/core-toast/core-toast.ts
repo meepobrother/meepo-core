@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CoreService } from '../core.service';
 
 @Component({
@@ -6,8 +6,8 @@ import { CoreService } from '../core.service';
     templateUrl: './core-toast.html',
     styleUrls: ['./core-toast.scss']
 })
-export class CoreToastComponent implements OnInit {
-    widget: any = {
+export class CoreToastComponent {
+    widget: ToastWidget = {
         title: '已完成',
         icon: 'weui-icon-success-no-circle',
         show: false
@@ -21,11 +21,9 @@ export class CoreToastComponent implements OnInit {
             }
         });
     }
-
-    ngOnInit() { }
 }
 
-interface ToastWidget {
+export interface ToastWidget {
     title?: string;
     icon?: string;
     show?: boolean;

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CoreService } from '../core.service';
 @Component({
     selector: 'core-alert',
     templateUrl: './core-alert.html',
     styleUrls: ['./core-alert.scss']
 })
-export class CoreAlertComponent implements OnInit {
+export class CoreAlertComponent {
     widget: AlertWidget = {
         title: '弹窗标题',
         content: '弹窗内容，告知当前页面信息等',
@@ -21,7 +21,6 @@ export class CoreAlertComponent implements OnInit {
             }
         });
     }
-    ngOnInit() { }
 }
 
 export interface AlertWidget {

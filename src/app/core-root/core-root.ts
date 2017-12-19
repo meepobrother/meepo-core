@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CoreService } from '../core.service';
 import { Title } from '@angular/platform-browser';
 
@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
     styleUrls: ['./core-root.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class CoreRootComponent implements OnInit {
+export class CoreRootComponent {
     widget: any = {
         title: '页面标题'
     };
@@ -22,9 +22,5 @@ export class CoreRootComponent implements OnInit {
             this.title.setTitle(this.widget.title);
             // 设置微信分享
         });
-    }
-
-    ngOnInit() {
-
     }
 }

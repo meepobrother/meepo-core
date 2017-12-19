@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CoreService } from '../core.service';
-
+export interface ConfirmWidget {
+    title?: string;
+    content?: string;
+    btnCancel?: string;
+    btnSure?: string;
+    show?: boolean;
+}
 @Component({
     selector: 'core-confirm',
-    templateUrl: './core-confirm.html',
-    styleUrls: ['./core-confirm.scss']
+    templateUrl: './core-confirm.html'
 })
-export class CoreConfirmComponent implements OnInit {
+export class CoreConfirmComponent {
     widget: ConfirmWidget = {
         title: '弹窗标题',
         content: '自定义内容',
@@ -24,8 +29,6 @@ export class CoreConfirmComponent implements OnInit {
         });
     }
 
-    ngOnInit() { }
-
     cancel() {
         this.core.confirmBack$.next(true);
         this.core.closeConfirm();
@@ -37,10 +40,3 @@ export class CoreConfirmComponent implements OnInit {
     }
 }
 
-interface ConfirmWidget {
-    title?: string;
-    content?: string;
-    btnCancel?: string;
-    btnSure?: string;
-    show?: boolean;
-}

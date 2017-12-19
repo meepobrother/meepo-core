@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CoreService } from '../core.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CoreService } from '../core.service';
     templateUrl: './core-loading.html',
     styleUrls: ['./core-loading.scss']
 })
-export class CoreLoadingComponent implements OnInit {
+export class CoreLoadingComponent {
     widget: any = {
         title: '数据加载中',
         show: false
@@ -18,6 +18,4 @@ export class CoreLoadingComponent implements OnInit {
             this.widget = { ...this.widget, ...res };
         });
     }
-
-    ngOnInit() { }
 }
