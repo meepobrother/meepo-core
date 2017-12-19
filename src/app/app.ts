@@ -1,13 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { VersionnComponent } from './version';
+export { CoreModule } from './core.module';
+export { CoreService } from './core.service';
 
-@NgModule({
-    declarations: [
-        VersionnComponent
-    ],
-    imports: [ CommonModule ],
-    exports: [],
-    providers: [],
-})
-export class AppModule {}
+export { CoreAlertComponent } from './core-alert/core-alert';
+export { CoreConfirmComponent } from './core-confirm/core-confirm';
+export { CoreToastComponent } from './core-toast/core-toast';
+export { CoreLoadingComponent } from './core-loading/core-loading';
+export { CoreRootComponent } from './core-root/core-root';
