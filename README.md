@@ -6,12 +6,17 @@
 yarn add meepo-core
 ```
 
+1. 引入weui.css
+```html
+<link rel="stylesheet" href="https://meepo.com.cn/meepo/libs/weui/weui.min.css">
+```
+2. 引用跟组件
 ```html
 <core-root>
     <!-- 任何东西 -->
 </core-root>
 ```
-
+3. 实现业务逻辑
 ```ts
 // 引入
 import { MeepoCoreModule } from 'meepo-core';
