@@ -5,9 +5,5 @@ export { CoreToastComponent } from './core-toast/core-toast';
 export { CoreLoadingComponent } from './core-loading/core-loading';
 export { CoreRootComponent } from './core-root/core-root';
 export { CoreMenuComponent } from './core-menu/core-menu';
-
-
-
 export { MeepoCoreModule } from './core.module';
 export { CoreService } from './core.service';
-

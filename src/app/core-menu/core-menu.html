@@ -1,3 +1,60 @@
-<div class="core_menu_container">
-    
+<div class="core-menu" (click)="onBack()" *ngIf="widget.show"></div>
+<div class="core_menu_container" *ngIf="widget.show" (click)="onMain($event)">
+    <div class="core_menu_layout">
+        <div class="core_menu_layout_header">
+            <div class="avatar">
+                <img [src]="widget.avatar" />
+            </div>
+            <div class="nickname">
+                {{widget.nickname}}
+            </div>
+            <div class="tag">
+                {{widget.tag}}
+            </div>
+        </div>
+        <div class="core_menu_layout_body">
+            <div class="item">
+                <div class="item-left">
+                    <i class="tasker_icon"></i>
+                </div>
+                <div class="item-body">任务</div>
+            </div>
+            <div class="item">
+                <div class="item-left">
+                    <i class="coacher_icon"></i>
+                </div>
+                <div class="item-body">预约</div>
+            </div>
+            <div class="item">
+                <div class="item-left">
+                    <i class="shoper_icon"></i>
+                </div>
+                <div class="item-body">到店</div>
+            </div>
+            <div class="item">
+                <div class="item-left">
+                    <i class="activer_icon"></i>
+                </div>
+                <div class="item-body">活动</div>
+            </div>
+            <div class="item">
+                <div class="item-left">
+                    <i class="money_icon"></i>
+                </div>
+                <div class="item-body">钱包</div>
+            </div>
+            <div class="item">
+                <div class="item-left">
+                    <i class="kefu_icon"></i>
+                </div>
+                <div class="item-body">客服</div>
+            </div>
+            <div class="item">
+                <div class="item-left">
+                    <i class="setting_icon"></i>
+                </div>
+                <div class="item-body">设置</div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,4 +1,4 @@
-core-menu {
+.core-menu {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -6,12 +6,113 @@ core-menu {
     bottom: 0px;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10;
-    .core_menu_container {
-        width: 220px;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        bottom: 0px;
-        background-color: #fff;
+}
+
+.core_menu_container {
+    width: 220px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #fff;
+    z-index: 10;
+    .core_menu_layout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .core_menu_layout_header {
+        height: 120px;
+        padding: 20px 0px 10px;
+        position: relative;
+        &:after {
+            content: " ";
+            position: absolute;
+            bottom: 0px;
+            left: 20px;
+            right: 20px;
+            height: 1px;
+            color: #ccc;
+            background-color: #ccc;
+            transform: scaleY(0.5);
+        }
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+            background-image: url("./avatar_default_unlogin.png");
+            background-size: cover;
+        }
+        .nickname {
+            font-size: 1em;
+            text-align: center;
+            margin: 5px 3px;
+        }
+        .tag {
+            font-size: .7em;
+            color: gray;
+            text-align: center;
+        }
+    }
+    .core_menu_layout_body {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
+        .item {
+            display: flex;
+            flex-direction: row;
+            height: 35px;
+            line-height: 35px;
+            position: relative;
+            &:before {
+                content: " ";
+            }
+            .item-left {
+                width: 35px;
+                height: 35px;
+                margin-right: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .activer_icon,
+                .coacher_icon,
+                .kefu_icon,
+                .setting_icon,
+                .shoper_icon,
+                .tasker_icon,
+                .money_icon {
+                    background-size: cover;
+                    width: 20px;
+                    height: 20px;
+                    display: block;
+                }
+                .activer_icon {
+                    background-image: url("./activer.png");
+                }
+                .coacher_icon {
+                    background-image: url("./coacher.png");
+                }
+                .kefu_icon {
+                    background-image: url("./kefu.png");
+                }
+                .setting_icon {
+                    background-image: url("./setting.png");
+                }
+                .shoper_icon {
+                    background-image: url("./shoper.png");
+                }
+                .tasker_icon {
+                    background-image: url("./tasker.png");
+                }
+                .money_icon {
+                    background-image: url("./money.png");
+                }
+            }
+            .item-body {
+                font-size: .9em;
+            }
+        }
     }
 }

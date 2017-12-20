@@ -5,6 +5,7 @@ import { Subject } from 'rxjs/Subject';
 export class CoreService {
     toast$: Subject<any> = new Subject();
     alert$: Subject<any> = new Subject();
+    menu$: Subject<any> = new Subject();
 
     confirm$: Subject<any> = new Subject();
     confirmBack$: Subject<any> = new Subject();
@@ -12,6 +13,15 @@ export class CoreService {
     loading$: Subject<any> = new Subject();
 
     app$: Subject<any> = new Subject();
+
+    // menu
+    showMenu(msg: any) {
+        msg = { ...msg, ...{ show: true } };
+        this.menu$.next(msg);
+    }
+    closeMenu(){
+        this.menu$.next({ show: false });
+    }
     // loading
     showLoading(msg) {
         msg = { ...msg, ...{ show: true } };
