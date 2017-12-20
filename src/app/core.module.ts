@@ -8,14 +8,15 @@ import { CoreConfirmComponent } from './core-confirm/core-confirm';
 import { CoreToastComponent } from './core-toast/core-toast';
 import { CoreLoadingComponent } from './core-loading/core-loading';
 import { CoreRootComponent } from './core-root/core-root';
-
+import { CoreMenuComponent } from './core-menu/core-menu';
 
 const CoreComponents: any[] = [
     CoreAlertComponent,
     CoreRootComponent,
     CoreConfirmComponent,
     CoreToastComponent,
-    CoreLoadingComponent
+    CoreLoadingComponent,
+    CoreMenuComponent
 ];
 
 @NgModule({

@@ -21,7 +21,7 @@
         "annotateForClosureCompiler": true,
         "strictMetadataEmit": true,
         "flatModuleOutFile": "index.js",
-        "flatModuleId": "meepo-core",
+        "flatModuleId": "imeepos-ng-template",
         "skipTemplateCodegen": true
     }
 }
