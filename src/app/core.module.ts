@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CoreService } from './core.service';
@@ -23,12 +23,18 @@ const CoreComponents: any[] = [
     declarations: [
         ...CoreComponents
     ],
-    imports: [CommonModule],
+    imports: [
+        CommonModule
+    ],
     exports: [
         ...CoreComponents
-    ],
-    providers: [
-        CoreService
-    ],
+    ]
 })
-export class MeepoCoreModule { }
+export class MeepoCoreModule {
+    public static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: MeepoCoreModule,
+            providers: [CoreService],
+        };
+    }
+}
