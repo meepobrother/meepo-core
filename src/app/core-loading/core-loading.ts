@@ -54,10 +54,15 @@ export class CoreLoadingComponent {
     }
 
     showLoading() {
-        this.createByName(this.loadingName);
+        if(!this.loadingElement){
+            this.createByName(this.loadingName);
+        }
     }
 
     hideLoading() {
-        this.document.body.removeChild(this.loadingElement)
+        if (this.loadingElement) {
+            this.document.body.removeChild(this.loadingElement);
+            this.loadingElement = null;
+        }
     }
 }

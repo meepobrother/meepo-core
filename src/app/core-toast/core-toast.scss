@@ -1,6 +1,3 @@
-:host {
-    display: block;
-}
 
 .toast-title {
     font-weight: bold;
@@ -110,6 +107,7 @@ button.toast-close-button {
     position: fixed;
     z-index: 999999;
     pointer-events: none;
+    font-size: .5em;
 }
 
 #toast-container * {

@@ -38,6 +38,7 @@ export class CoreToastComponent {
                         this.cd.markForCheck();
                     }, 30);
                 });
+                this.cd.markForCheck();
             }
         });
     }

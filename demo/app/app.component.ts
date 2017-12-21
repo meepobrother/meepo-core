@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
         message: '请检查您的网络链接',
         type: 'info'
       });
-    },1000)
+    },100)
   }
 
   onHome() {

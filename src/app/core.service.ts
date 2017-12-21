@@ -50,9 +50,9 @@ export class CoreService {
         this.alert$.next({ show: false });
     }
     // toast
-    showToast(msg: any) {
-        msg = { ...msg, ...{ show: true } };
-        this.toast$.next(msg);
+    showToast(toast: any) {
+        toast = { ...{ config: { showCloseButton: true } }, ...toast }
+        this.toast$.next(toast);
     }
 
     closeToast() {
