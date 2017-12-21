@@ -9,7 +9,7 @@ import { MeepoBmapModule } from 'meepo-bmap';
   ],
   imports: [
     BrowserModule,
-    MeepoCoreModule,
+    MeepoCoreModule.forRoot(),
     MeepoBmapModule
   ],
   providers: [],

@@ -1,7 +1,11 @@
-<div *ngIf="widget.show">
-    <div class="weui-mask_transparent"></div>
-    <div class="weui-toast">
-        <i class="weui-icon_toast" [ngClass]="widget.icon"></i>
-        <p class="weui-toast__content">{{widget.title}}</p>
+<div #toastContainer id="toast-container" [ngClass]="position">
+    <div *ngFor="let toast of toasts;index as i;" class="toast toast-{{toast.type}}" (click)="clicked(toast)">
+        <div class="toast-close-button" *ngIf="toast.config.showCloseButton" (click)="removeToast(i)">&times;</div>
+        <div *ngIf="toast.title" class="{{toast.config.titleClass || 'toast-title'}}">{{toast.title}}</div>
+        <div [ngSwitch]="toast.config.enableHTML">
+            <span *ngSwitchCase="true" class="{{toast.config.messageClass || 'toast-message'}}" [innerHTML]="sanitizer.bypassSecurityTrustHtml(toast.message)"></span>
+            <span *ngSwitchDefault class="{{toast.config.messageClass || 'toast-message'}}">{{toast.message}}</span>
+        </div>
+        <div class="toast-progress" [style.width.%]="toast.pocent"></div>
     </div>
 </div>

@@ -14,7 +14,7 @@ let tsFileTester = /\.ts$/;
 
 let stylesRegex = /styleUrls *:(\s*\[[^\]]*?\])/g;
 let htmlRegex = /templateUrl\s*:\s*\'(\S*?)\'/g;
-let imageRegex = /url\((\S*?)\)/g;
+let imageRegex = /url\((\S*?.png)\)/g;
 
 
 let stringRegex = /(['"])((?:[^\\]\\\1|.)*?)\1/g;

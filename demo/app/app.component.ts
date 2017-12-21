@@ -8,10 +8,27 @@ import { CoreService } from '../../src/app/app';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+
   constructor(
     public core: CoreService
   ) { }
-  ngOnInit() { }
+
+  ngOnInit() {
+    this.core.addToast({
+      title: '网络错误',
+      message: '请检查您的网络链接',
+      type: 'warning',
+      position: ''
+    });
+
+    setTimeout(()=>{
+      this.core.addToast({
+        title: '网络错误',
+        message: '请检查您的网络链接',
+        type: 'info'
+      });
+    },1000)
+  }
 
   onHome() {
     this.core.showMenu({ show: true });

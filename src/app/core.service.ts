@@ -19,7 +19,7 @@ export class CoreService {
         msg = { ...msg, ...{ show: true } };
         this.menu$.next(msg);
     }
-    closeMenu(){
+    closeMenu() {
         this.menu$.next({ show: false });
     }
     // loading
@@ -57,5 +57,10 @@ export class CoreService {
 
     closeToast() {
         this.toast$.next({ show: false });
+    }
+
+    addToast(toast: any) {
+        toast = { ...{ config: { showCloseButton: true } }, ...toast }
+        this.toast$.next(toast);
     }
 }
