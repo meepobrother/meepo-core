@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { LoadingTypes } from './core-loading/loading/index';
 
 @Injectable()
 export class CoreService {
@@ -23,7 +24,7 @@ export class CoreService {
         this.menu$.next({ show: false });
     }
     // loading
-    showLoading(msg) {
+    showLoading(msg: LoadingWidget) {
         msg = { ...msg, ...{ show: true } };
         this.loading$.next(msg);
     }
@@ -32,7 +33,7 @@ export class CoreService {
         this.loading$.next({ show: false });
     }
     // confirm
-    showConfirm(msg: any) {
+    showConfirm(msg: LoadingWidget) {
         msg = { ...msg, ...{ show: true } };
         this.confirm$.next(msg);
     }
@@ -63,4 +64,10 @@ export class CoreService {
         toast = { ...{ config: { showCloseButton: true } }, ...toast }
         this.toast$.next(toast);
     }
+}
+
+
+export interface LoadingWidget {
+    show?: boolean;
+    type?: LoadingTypes
 }
