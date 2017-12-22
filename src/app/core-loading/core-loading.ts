@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { CoreService } from '../core.service';
 import * as config from './loading/index';
 import { DOCUMENT } from '@angular/common';
@@ -6,7 +6,8 @@ import { DOCUMENT } from '@angular/common';
 @Component({
     selector: 'core-loading',
     templateUrl: './core-loading.html',
-    styleUrls: ['./core-loading.scss']
+    styleUrls: ['./core-loading.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class CoreLoadingComponent {
     widget: any = {
