@@ -23,22 +23,10 @@ export function coreFactory() {
     return new CoreService();
 }
 
-import { MeepoCoreServiceModule } from './core-service.module';
-@NgModule({
-    declarations: [
-        ...CoreComponents
-    ],
-    imports: [
-        CommonModule,
-        MeepoCoreServiceModule.forRoot()
-    ],
-    exports: [
-        ...CoreComponents
-    ]
-})
-export class MeepoCoreModule {
+@NgModule({})
+export class MeepoCoreServiceModule {
 
-    constructor( @Optional() @SkipSelf() parentModule: MeepoCoreModule) {
+    constructor( @Optional() @SkipSelf() parentModule: MeepoCoreServiceModule) {
         if (parentModule) {
             throw new Error(
                 'CoreModule is already loaded. Import it in the AppModule only');
@@ -47,7 +35,13 @@ export class MeepoCoreModule {
 
     public static forRoot(): ModuleWithProviders {
         return {
-            ngModule: MeepoCoreModule
+            ngModule: MeepoCoreServiceModule,
+            providers: [
+                {
+                    provide: CoreService,
+                    useFactory: coreFactory
+                }
+            ],
         };
     }
 }

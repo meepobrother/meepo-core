@@ -6,4 +6,6 @@ export { CoreLoadingComponent } from './core-loading/core-loading';
 export { CoreRootComponent } from './core-root/core-root';
 export { CoreMenuComponent } from './core-menu/core-menu';
 export { MeepoCoreModule } from './core.module';
+export { CoreServiceModule } from './core-service.module';
+
 export { CoreService } from './core.service';
