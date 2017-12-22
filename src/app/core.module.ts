@@ -19,9 +19,6 @@ const CoreComponents: any[] = [
     CoreMenuComponent
 ];
 
-export function coreFactory() {
-    return new CoreService();
-}
 
 import { MeepoCoreServiceModule } from './core-service.module';
 @NgModule({
