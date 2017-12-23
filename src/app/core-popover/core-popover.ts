@@ -14,10 +14,10 @@ export class CorePopoverComponent implements OnInit {
         show: false,
         title: '页面标题',
         tpl: null,
+        headerTpl: null,
+        footerTpl: null,
         hasMore: false,
         hasRefresh: false,
-        hasFooter: false,
-        hasHeader: false,
         style: {
             background: 'rgba(255,255,255,.8)'
         }
@@ -39,9 +39,9 @@ export interface CorePopoverWidget {
     show?: boolean;
     title?: string;
     tpl?: TemplateRef<any>;
+    headerTpl?: TemplateRef<any>;
+    footerTpl?: TemplateRef<any>;
     hasMore?: boolean;
     hasRefresh?: boolean;
-    hasFooter?: boolean;
-    hasHeader?: boolean;
     style?: any;
 }

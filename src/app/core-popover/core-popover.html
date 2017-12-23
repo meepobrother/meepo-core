@@ -1,17 +1,13 @@
 <div class="core-popover" [ngStyle]="widget.style" *ngIf="widget.show">
-    <div class="core-popover_header" *ngIf="widget.hasHeader">
-        <div class="left" (click)="_close()">
-            关闭
-        </div>
-        <h2 class="title">{{widget.title}}</h2>
-        <div class="right"></div>
+    <div class="core-popover_header" *ngIf="widget.headerTpl">
+        <ng-container *ngTemplateOutlet="widget.headerTpl"></ng-container>
     </div>
     <div class="core-popover_container">
         <xscroll style="bottom: 0px;" [hasMore]="widget.hasMore" [hasRefresh]="widget.hasRefresh">
             <ng-container *ngTemplateOutlet="widget.tpl"></ng-container>
         </xscroll>
     </div>
-    <div class="core-popover_footer" *ngIf="widget.hasFooter">
-        <div class="footer_item">下一步</div>
+    <div class="core-popover_footer" *ngIf="widget.footerTpl">
+        <ng-container *ngTemplateOutlet="widget.footerTpl"></ng-container>
     </div>
 </div>
