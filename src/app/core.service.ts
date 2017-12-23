@@ -20,7 +20,7 @@ export class CoreService {
     }
     showPopover(msg: CorePopoverWidget) {
         msg = { ...msg, ...{ show: true } };
-        this.popover$.next(msg)
+        this.popover$.next(msg);
     }
 
     closePopover() { 
