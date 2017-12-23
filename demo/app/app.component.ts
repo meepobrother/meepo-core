@@ -13,24 +13,12 @@ export class AppComponent implements OnInit {
     public core: CoreService
   ) { }
 
-  ngOnInit() {
-    this.core.addToast({
-      title: '网络错误',
-      message: '请检查您的网络链接',
-      type: 'warning',
-      position: ''
-    });
+  ngOnInit() { }
 
-    setTimeout(()=>{
-      this.core.addToast({
-        title: '网络错误',
-        message: '请检查您的网络链接',
-        type: 'info'
-      });
-    },100)
+  onHome(e: any) {
+    this.core.showMenu({ show: true });
   }
 
-  onHome() {
-    this.core.showMenu({ show: true });
+  onFinish(e: any){
   }
 }
