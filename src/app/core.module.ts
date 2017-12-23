@@ -9,6 +9,7 @@ import { CoreToastComponent } from './core-toast/core-toast';
 import { CoreLoadingComponent } from './core-loading/core-loading';
 import { CoreRootComponent } from './core-root/core-root';
 import { CoreMenuComponent } from './core-menu/core-menu';
+import { CorePopoverComponent } from './core-popover/core-popover';
 
 const CoreComponents: any[] = [
     CoreAlertComponent,
@@ -16,18 +17,20 @@ const CoreComponents: any[] = [
     CoreConfirmComponent,
     CoreToastComponent,
     CoreLoadingComponent,
-    CoreMenuComponent
+    CoreMenuComponent,
+    CorePopoverComponent
 ];
 
-
 import { MeepoCoreServiceModule } from './core-service.module';
+import { XscrollModule } from 'meepo-xscroll';
 @NgModule({
     declarations: [
         ...CoreComponents
     ],
     imports: [
         CommonModule,
-        MeepoCoreServiceModule.forRoot()
+        MeepoCoreServiceModule.forRoot(),
+        XscrollModule.forRoot()
     ],
     exports: [
         ...CoreComponents

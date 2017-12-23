@@ -7,18 +7,26 @@ export class CoreService {
     toast$: Subject<any> = new Subject();
     alert$: Subject<any> = new Subject();
     menu$: Subject<any> = new Subject();
-
     confirm$: Subject<any> = new Subject();
     confirmBack$: Subject<any> = new Subject();
 
+    popover$: Subject<any> = new Subject();
+    popoverBack$: Subject<any> = new Subject();
     loading$: Subject<any> = new Subject();
-
     app$: Subject<any> = new Subject();
-
     time: any = new Date().getTime();
     constructor() {
         console.log('CoreService time is', this.time);
     }
+    showPopover(msg: any) {
+        msg = { ...msg, ...{ show: true } };
+        this.popover$.next(msg)
+    }
+
+    closePopover() { 
+        this.popover$.next({ show: false });
+    }
+
     // menu
     showMenu(msg: any) {
         msg = { ...msg, ...{ show: true } };

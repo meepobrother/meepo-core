@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
 import { CoreService } from '../../src/app/app';
 @Component({
   selector: 'app-root',
@@ -7,18 +7,21 @@ import { CoreService } from '../../src/app/app';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
+  @ViewChild('postTask') postTask: TemplateRef<any>;
   title = 'app';
-
   constructor(
     public core: CoreService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.postTask);
+  }
 
   onHome(e: any) {
     this.core.showMenu({ show: true });
   }
 
-  onFinish(e: any){
+  onFinish(e: any) {
+    this.core.showPopover({ tpl: this.postTask });
   }
 }
