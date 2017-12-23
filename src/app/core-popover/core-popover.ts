@@ -15,7 +15,9 @@ export class CorePopoverComponent implements OnInit {
         title: '页面标题',
         tpl: null,
         hasMore: false,
-        hasRefresh: false
+        hasRefresh: false,
+        hasFooter: false,
+        hasHeader: false
     };
     constructor(
         public core: CoreService
@@ -36,4 +38,6 @@ export interface CorePopoverWidget {
     tpl?: TemplateRef<any>;
     hasMore?: boolean;
     hasRefresh?: boolean;
+    hasFooter?: boolean;
+    hasHeader?: boolean;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef, ChangeDetectorRef } from '@angular/core';
 import { CoreService } from '../../src/app/app';
 @Component({
   selector: 'app-root',
@@ -9,8 +9,11 @@ import { CoreService } from '../../src/app/app';
 export class AppComponent implements OnInit {
   @ViewChild('postTask') postTask: TemplateRef<any>;
   title = 'app';
+
+  post: any;
   constructor(
-    public core: CoreService
+    public core: CoreService,
+    public cd: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -22,6 +25,9 @@ export class AppComponent implements OnInit {
   }
 
   onFinish(e: any) {
+    this.post = e;
+    console.log(this.post);
     this.core.showPopover({ tpl: this.postTask });
+    this.cd.markForCheck();
   }
 }

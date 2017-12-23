@@ -1,5 +1,5 @@
 <div class="core-popover" *ngIf="widget.show">
-    <div class="core-popover_header">
+    <div class="core-popover_header" *ngIf="widget.hasHeader">
         <div class="left" (click)="_close()">
             关闭
         </div>
@@ -7,11 +7,11 @@
         <div class="right"></div>
     </div>
     <div class="core-popover_container">
-        <xscroll [hasMore]="widget.hasMore" [hasRefresh]="widget.hasRefresh">
+        <xscroll style="bottom: 0px;" [hasMore]="widget.hasMore" [hasRefresh]="widget.hasRefresh">
             <ng-container *ngTemplateOutlet="widget.tpl"></ng-container>
         </xscroll>
     </div>
-    <div class="core-popover_footer">
+    <div class="core-popover_footer" *ngIf="widget.hasFooter">
         <div class="footer_item">下一步</div>
     </div>
 </div>
