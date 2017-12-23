@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { CoreService } from '../core.service';
 
 @Component({
@@ -23,12 +23,15 @@ export class CorePopoverComponent implements OnInit {
         },
         list: []
     };
-
+    list: any[] = [];
     constructor(
-        public core: CoreService
+        public core: CoreService,
+        public cd: ChangeDetectorRef
     ) {
         this.core.popover$.subscribe((res: CorePopoverWidget) => {
             this.widget = { ...this.widget, ...res };
+            this.list = this.widget.list;
+            this.cd.markForCheck();
         });
     }
     ngOnInit() { }
