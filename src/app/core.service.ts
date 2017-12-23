@@ -15,6 +15,10 @@ export class CoreService {
 
     app$: Subject<any> = new Subject();
 
+    time: any = new Date().getTime();
+    constructor() {
+        console.log('CoreService time is', this.time);
+    }
     // menu
     showMenu(msg: any) {
         msg = { ...msg, ...{ show: true } };
