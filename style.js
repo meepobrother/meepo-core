@@ -2,6 +2,8 @@ let fs = require('fs');
 let pathUtil = require('path');
 let less = require("less");
 let scss = require("node-sass");
+var autoprefixer = require('autoprefixer');
+var postcss = require('postcss');
 
 let genDistPath = pathUtil.join(__dirname, 'src', '.tmp', 'release');
 let genPath = pathUtil.join(__dirname, 'src', '.tmp');
@@ -17,7 +19,41 @@ let imageRegex = /url\([\'\"](\S*?\.png)[\'\"]\)/g;
 let stringRegex = /(['"])((?:[^\\]\\\1|.)*?)\1/g;
 let lessNumRegex = /style_(\d+)_less/g;
 
-import { cssImage } from './scripts/style/image';
+function cssImage(css, file) {
+    return new Promise((resolve, reject) => {
+        css = css.toString();
+        // 检查图片并转换base64
+        if (imageRegex.test(css)) {
+            let contentTemp = css.toString().replace(imageRegex, function (match, fileName) {
+                fileName = fileName.replace("'", '');
+                fileName = fileName.replace("'", '');
+                fileName = fileName.replace('"', '');
+                fileName = fileName.replace('"', '');
+                let filePath = pathUtil.resolve(pathUtil.dirname(file), fileName);
+                let content = fs.readFileSync(filePath);
+                let base64 = 'url(data:image/png;base64,' + content.toString("base64") + ')';
+                return base64;
+            });
+            css = contentTemp;
+        }
+        css.replace(/\\e/g, function (match, e) {
+            // 对content中的类似'\e630'中的\e进行处理
+            return '\\\\e';
+        }).replace(/\\E/g, function (match, e) {
+            // 对content中的类似'\E630'中的\E进行处理
+            return '\\\\E';
+        }).replace(/\\20/g, function (match, e) {
+            // 对content中的类似'\20'中的\20进行处理
+            return '\\\\20';
+        }).replace(/`/g, function (match, e) {
+            // 处理css中`符号
+            return "'";
+        });
+        postcss([autoprefixer]).process(css).then(result => {
+            resolve(result.css);
+        });
+    });
+}
 
 function getTsFile(path, parse) {
     try {
@@ -101,9 +137,11 @@ function processLess() {
                                 console.log(e);
                             } else {
                                 // 检查图片并转换base64
-                                lessFilePool[index] = cssImage(output.css, lessFilePool[index]);
+                                cssImage(output.css, lessFilePool[index]).then(res => {
+                                    lessFilePool[index] = res;
+                                    doneOne();
+                                });
                             }
-                            doneOne();
                         })
                     }
                 });
@@ -117,8 +155,10 @@ function processLess() {
                         console.log(e);
                     } else {
                         // 检查图片并转换base64
-                        lessFilePool[index] = cssImage(output.css, lessFilePool[index]);
-                        doneOne();
+                        cssImage(output.css, lessFilePool[index]).then(res => {
+                            lessFilePool[index] = res;
+                            doneOne();
+                        });
                     }
                 });
             }
@@ -128,9 +168,12 @@ function processLess() {
                     if (e) {
                         console.log(e)
                     } else {
-                        lessFilePool[index] = cssImage(data.toString(), lessFilePool[index]);
+                        // 检查图片并转换base64
+                        cssImage(data.toString(), lessFilePool[index]).then(res => {
+                            lessFilePool[index] = res;
+                            doneOne();
+                        });
                     }
-                    doneOne();
                 });
             }
 
