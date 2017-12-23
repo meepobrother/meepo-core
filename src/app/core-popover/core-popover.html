@@ -1,4 +1,4 @@
-<div class="core-popover" *ngIf="widget.show">
+<div class="core-popover" [ngStyle]="widget.style" *ngIf="widget.show">
     <div class="core-popover_header" *ngIf="widget.hasHeader">
         <div class="left" (click)="_close()">
             关闭

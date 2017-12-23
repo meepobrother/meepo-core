@@ -17,7 +17,10 @@ export class CorePopoverComponent implements OnInit {
         hasMore: false,
         hasRefresh: false,
         hasFooter: false,
-        hasHeader: false
+        hasHeader: false,
+        style: {
+            background: 'rgba(255,255,255,.8)'
+        }
     };
     constructor(
         public core: CoreService
@@ -40,4 +43,5 @@ export interface CorePopoverWidget {
     hasRefresh?: boolean;
     hasFooter?: boolean;
     hasHeader?: boolean;
+    style?: any;
 }
