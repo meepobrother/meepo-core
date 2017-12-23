@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MeepoCoreModule } from '../../src/app/app';
+import { MeepoCoreModule, MeepoCoreServiceModule } from '../../src/app/app';
 import { MeepoBmapModule } from 'meepo-bmap';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -10,7 +11,8 @@ import { MeepoBmapModule } from 'meepo-bmap';
   imports: [
     BrowserModule,
     MeepoCoreModule.forRoot(),
-    MeepoBmapModule
+    MeepoBmapModule.forRoot(),
+    MeepoCoreServiceModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
