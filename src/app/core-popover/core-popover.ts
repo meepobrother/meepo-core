@@ -27,6 +27,7 @@ export class CorePopoverComponent implements OnInit {
     ) {
         this.core.popover$.subscribe((res: CorePopoverWidget) => {
             this.widget = { ...this.widget, ...res };
+            console.log(this.widget);
         });
     }
     ngOnInit() { }
