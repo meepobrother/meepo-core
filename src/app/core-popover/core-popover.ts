@@ -20,8 +20,10 @@ export class CorePopoverComponent implements OnInit {
         hasRefresh: false,
         style: {
             background: 'rgba(255,255,255,.8)'
-        }
+        },
+        list: []
     };
+
     constructor(
         public core: CoreService
     ) {
@@ -45,4 +47,5 @@ export interface CorePopoverWidget {
     hasMore?: boolean;
     hasRefresh?: boolean;
     style?: any;
+    list?: any[];
 }
