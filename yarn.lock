@@ -3573,9 +3573,9 @@ meepo-core@^2.2.3:
     typeorm "^0.1.9"
     zone.js "0.8.4"
 
-meepo-xscroll@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/meepo-xscroll/-/meepo-xscroll-1.0.8.tgz#de0385980edf2759a19a3904a67d009b853fb45c"
+meepo-xscroll@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/meepo-xscroll/-/meepo-xscroll-1.0.9.tgz#e54c85085da3903a0e74de7ea5338e6253bd2992"
   dependencies:
     "@angular/common" "^5.1.0"
     "@angular/core" "^5.1.0"
