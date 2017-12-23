@@ -29,7 +29,7 @@ import { XscrollModule } from 'meepo-xscroll';
     ],
     imports: [
         CommonModule,
-        MeepoCoreServiceModule.forRoot(),
+        MeepoCoreServiceModule,
         XscrollModule.forRoot()
     ],
     exports: [
