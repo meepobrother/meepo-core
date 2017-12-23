@@ -75,3 +75,21 @@ export interface LoadingWidget {
     show?: boolean;
     type?: LoadingTypes
 }
+
+declare const window: any;
+declare const global: any;
+if (window) {
+    window['meepo'] = window['meepo'] || {};
+    var meepo = window['meepo'];
+} else {
+    global['meepo'] = global['meepo'] || {};
+    var meepo = window['meepo'];
+}
+export function getCoreService() {
+    if (meepo._coreService) {
+        return meepo._coreService;
+    } else {
+        meepo._coreService = new CoreService();
+        return meepo._coreService;
+    }
+}
