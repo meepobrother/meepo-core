@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PostTaskComponent } from './post-task/post-task';
 
-import { MeepoCoreModule, MeepoCoreServiceModule } from '../../src/app/app';
+import { MeepoCoreModule, MeepoCoreServiceModule } from 'meepo-core';
 import { MeepoBmapModule } from 'meepo-bmap';
 
 @NgModule({

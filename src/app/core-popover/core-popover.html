@@ -3,7 +3,7 @@
         <ng-container *ngTemplateOutlet="widget.headerTpl"></ng-container>
     </div>
     <div class="core-popover_container">
-        <xscroll style="bottom: 0px;" [items]="list" [hasMore]="widget.hasMore" [hasRefresh]="widget.hasRefresh">
+        <xscroll style="bottom: 0px;" [(items)]="list" [hasMore]="widget.hasMore" [hasRefresh]="widget.hasRefresh">
             <ng-template xscrollRef let-item>
                 <ng-container *ngTemplateOutlet="widget.tpl;context: {$implicit: item}"></ng-container>
             </ng-template>

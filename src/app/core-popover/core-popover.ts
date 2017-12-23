@@ -33,6 +33,7 @@ export class CorePopoverComponent implements OnInit {
             this.list = this.widget.list;
             console.log('core popover list', this.list);
             this.cd.markForCheck();
+            this.cd.detectChanges();
         });
     }
     ngOnInit() { }

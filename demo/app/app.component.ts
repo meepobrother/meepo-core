@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef, ChangeDetectorRef } from '@angular/core';
-import { CoreService } from '../../src/app/app';
+import { CoreService } from 'meepo-core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +9,6 @@ import { CoreService } from '../../src/app/app';
 export class AppComponent implements OnInit {
   @ViewChild('postTask') postTask: TemplateRef<any>;
   title = 'app';
-
   post: any;
   constructor(
     public core: CoreService,
