@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { LoadingTypes } from './core-loading/loading/index';
-
+import { CorePopoverWidget } from './core-popover/core-popover';
 @Injectable()
 export class CoreService {
     toast$: Subject<any> = new Subject();
@@ -18,7 +18,7 @@ export class CoreService {
     constructor() {
         console.log('CoreService time is', this.time);
     }
-    showPopover(msg: any) {
+    showPopover(msg: CorePopoverWidget) {
         msg = { ...msg, ...{ show: true } };
         this.popover$.next(msg)
     }
