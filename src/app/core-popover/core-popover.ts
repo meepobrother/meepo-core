@@ -31,7 +31,6 @@ export class CorePopoverComponent implements OnInit {
         this.core.popover$.subscribe((res: CorePopoverWidget) => {
             this.widget = { ...this.widget, ...res };
             this.list = this.widget.list;
-            console.log('core popover list', this.list);
             this.cd.markForCheck();
             this.cd.detectChanges();
         });
