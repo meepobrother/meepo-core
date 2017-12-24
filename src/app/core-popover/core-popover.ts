@@ -31,8 +31,9 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
     set widget(val: CorePopoverWidget) {
         this._widget = { ...this._widget, ...val };
         console.log(this._widget);
+        this.cd.detectChanges();
     }
-    get widget() { 
+    get widget() {
         return this._widget;
     }
     list: any[] = [];
@@ -44,7 +45,6 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
             this._widget = { ...this._widget, ...res };
             this.list = this._widget.list;
             this.xscrollComponent.onEnd();
-            this.cd.markForCheck();
             this.cd.detectChanges();
         });
     }
