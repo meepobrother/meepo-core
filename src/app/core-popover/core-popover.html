@@ -2,7 +2,7 @@
     <div class="core-popover_header" *ngIf="_widget.headerTpl">
         <ng-container *ngTemplateOutlet="_widget.headerTpl"></ng-container>
     </div>
-    <ng-content selector="[popoverHeader]"></ng-content>
+    <ng-content select="[popoverHeader]"></ng-content>
     <div class="core-popover_container">
         <xscroll #xscroll style="bottom: 0px;" [(items)]="list" [hasMore]="_widget.hasMore" [hasRefresh]="_widget.hasRefresh">
             <ng-template xscrollRef let-item>
@@ -11,7 +11,7 @@
             <ng-content></ng-content>
         </xscroll>
     </div>
-    <ng-content selector="[popoverFooter]"></ng-content>
+    <ng-content select="[popoverFooter]"></ng-content>
     <div class="core-popover_footer" *ngIf="_widget.footerTpl">
         <ng-container *ngTemplateOutlet="_widget.footerTpl"></ng-container>
     </div>
