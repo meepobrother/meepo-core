@@ -44,16 +44,20 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
     get show() {
         return this._widget.show;
     }
+
+    @Input() online: boolean = true;
     list: any[] = [];
     constructor(
         public core: CoreService,
         public cd: ChangeDetectorRef
     ) {
         this.core.popover$.subscribe((res: CorePopoverWidget) => {
-            this._widget = { ...this._widget, ...res };
-            this.list = this._widget.list;
-            this.xscrollComponent.onEnd();
-            this.cd.detectChanges();
+            if(this.online){
+                this._widget = { ...this._widget, ...res };
+                this.list = this._widget.list;
+                this.xscrollComponent.onEnd();
+                this.cd.detectChanges();
+            }
         });
     }
     ngOnInit() { }
