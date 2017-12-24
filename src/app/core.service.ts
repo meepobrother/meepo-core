@@ -102,7 +102,7 @@ export class CoreService {
         if (isCloud) {
             return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=2&j=2${str}`;
         } else {
-            return `${this.protocol}//${this.siteurl}app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.uniacid}&j=${this.uniacid}${str}`;
+            return `${this.protocol}//${this.siteurl}/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.uniacid}&j=${this.uniacid}${str}`;
         }
     }
 
@@ -115,7 +115,7 @@ export class CoreService {
         for (const key in params) {
             str += '&' + key + '=' + params[key];
         }
-        return `${this.protocol}//${this.siteurl}web/index.php?c=${__controller}&` +
+        return `${this.protocol}//${this.siteurl}/web/index.php?c=${__controller}&` +
             `do=${__do}&a=${__action}&i=${this.uniacid}&j=${this.uniacid}${str}`;
     }
 }
