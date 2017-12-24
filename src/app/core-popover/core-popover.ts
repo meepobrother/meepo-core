@@ -1,6 +1,7 @@
 import {
     Component, OnInit, TemplateRef, ChangeDetectorRef,
-    ChangeDetectionStrategy, ViewChild, AfterContentInit, AfterViewInit
+    ChangeDetectionStrategy, ViewChild, AfterContentInit, AfterViewInit,
+    Input
 } from '@angular/core';
 import { CoreService } from '../core.service';
 import { XscrollComponent } from 'meepo-xscroll';
@@ -14,9 +15,8 @@ import { XscrollComponent } from 'meepo-xscroll';
 
 export class CorePopoverComponent implements OnInit, AfterViewInit {
     @ViewChild(XscrollComponent) xscrollComponent: XscrollComponent;
-    widget: CorePopoverWidget = {
+    _widget: CorePopoverWidget = {
         show: false,
-        title: '页面标题',
         tpl: null,
         headerTpl: null,
         footerTpl: null,
@@ -27,23 +27,28 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
         },
         list: []
     };
+    @Input()
+    set widget(val: CorePopoverWidget) {
+        this._widget = { ...this._widget, ...val };
+    }
+    get widget() { 
+        return this._widget;
+    }
     list: any[] = [];
     constructor(
         public core: CoreService,
         public cd: ChangeDetectorRef
     ) {
         this.core.popover$.subscribe((res: CorePopoverWidget) => {
-            this.widget = { ...this.widget, ...res };
-            this.list = this.widget.list;
+            this._widget = { ...this._widget, ...res };
+            this.list = this._widget.list;
             this.xscrollComponent.onEnd();
             this.cd.markForCheck();
             this.cd.detectChanges();
         });
     }
     ngOnInit() { }
-    ngAfterViewInit() {
-        console.log(this.xscrollComponent);
-    }
+    ngAfterViewInit() { }
     _close() {
         this.core.closePopover();
     }
@@ -51,7 +56,6 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
 
 export interface CorePopoverWidget {
     show?: boolean;
-    title?: string;
     tpl?: TemplateRef<any>;
     headerTpl?: TemplateRef<any>;
     footerTpl?: TemplateRef<any>;
