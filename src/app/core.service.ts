@@ -128,12 +128,13 @@ export interface LoadingWidget {
 
 declare const window: any;
 declare const global: any;
+let meepo: any;
 if (window) {
     window['meepo'] = window['meepo'] || {};
-    var meepo = window['meepo'];
+    meepo = window['meepo'];
 } else {
     global['meepo'] = global['meepo'] || {};
-    var meepo = window['meepo'];
+    meepo = window['meepo'];
 }
 export function getCoreService() {
     if (meepo._coreService) {
