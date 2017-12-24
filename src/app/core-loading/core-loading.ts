@@ -2,6 +2,7 @@ import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { CoreService } from '../core.service';
 import { DOCUMENT } from '@angular/common';
 import { Loadings, LoadingTypes } from '../loading/index';
+
 @Component({
     selector: 'core-loading',
     templateUrl: './core-loading.html',
@@ -38,18 +39,18 @@ export class CoreLoadingComponent {
     createByName(name: LoadingTypes) {
         // html
         this.loadingElement = this.document.createElement('div');
-        this.loadingElement.innerHTML = LoadingTypes[name].html;
+        this.loadingElement.innerHTML = Loadings[name].html;
         this.loadingElement.className = 'meepo-loading';
         this.loadingElement.id = 'meepo-loading';
         this.document.body.appendChild(this.loadingElement);
         // css
         let styleStr = this.document.createElement('style');
-        styleStr.innerHTML = config[name].css;
+        styleStr.innerHTML = Loadings[name].css;
         styleStr.type = 'text/css';
         this.document.head.appendChild(styleStr);
     }
 
-    setLoading(name: config.LoadingTypes) {
+    setLoading(name: LoadingTypes) {
         this.loadingName = name;
     }
 
