@@ -6,8 +6,13 @@
     bottom: 0px;
     z-index: 999;
     background-color: #efefef;
-    display: flex;
     flex-direction: column;
+    display: block;
+    visibility: hidden;
+    &.shown{
+        display: flex;
+        visibility: visible;
+    }
     .core-popover_header {
         height: 44px;
         display: flex;

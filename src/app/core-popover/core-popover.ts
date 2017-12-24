@@ -1,6 +1,9 @@
-import { Component, OnInit, TemplateRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import {
+    Component, OnInit, TemplateRef, ChangeDetectorRef,
+    ChangeDetectionStrategy, ViewChild, AfterContentInit, AfterViewInit
+} from '@angular/core';
 import { CoreService } from '../core.service';
-
+import { XscrollComponent } from 'meepo-xscroll';
 @Component({
     selector: 'core-popover',
     templateUrl: './core-popover.html',
@@ -9,7 +12,8 @@ import { CoreService } from '../core.service';
     ]
 })
 
-export class CorePopoverComponent implements OnInit {
+export class CorePopoverComponent implements OnInit, AfterViewInit {
+    @ViewChild(XscrollComponent) xscrollComponent: XscrollComponent;
     widget: CorePopoverWidget = {
         show: false,
         title: '页面标题',
@@ -31,11 +35,15 @@ export class CorePopoverComponent implements OnInit {
         this.core.popover$.subscribe((res: CorePopoverWidget) => {
             this.widget = { ...this.widget, ...res };
             this.list = this.widget.list;
+            this.xscrollComponent.onEnd();
             this.cd.markForCheck();
             this.cd.detectChanges();
         });
     }
     ngOnInit() { }
+    ngAfterViewInit() {
+        console.log(this.xscrollComponent);
+    }
     _close() {
         this.core.closePopover();
     }

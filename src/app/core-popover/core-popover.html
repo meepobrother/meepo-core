@@ -1,14 +1,17 @@
-<div class="core-popover" [ngStyle]="widget.style" *ngIf="widget.show">
+<div class="core-popover" [ngStyle]="widget.style" [class.shown]="widget.show">
     <div class="core-popover_header" *ngIf="widget.headerTpl">
         <ng-container *ngTemplateOutlet="widget.headerTpl"></ng-container>
     </div>
+    <ng-content selector="[popoverHeader]"></ng-content>
     <div class="core-popover_container">
-        <xscroll style="bottom: 0px;" [(items)]="list" [hasMore]="widget.hasMore" [hasRefresh]="widget.hasRefresh">
+        <xscroll #xscroll style="bottom: 0px;" [(items)]="list" [hasMore]="widget.hasMore" [hasRefresh]="widget.hasRefresh">
             <ng-template xscrollRef let-item>
                 <ng-container *ngTemplateOutlet="widget.tpl;context: {$implicit: item}"></ng-container>
             </ng-template>
+            <ng-content></ng-content>
         </xscroll>
     </div>
+    <ng-content selector="[popoverFooter]"></ng-content>
     <div class="core-popover_footer" *ngIf="widget.footerTpl">
         <ng-container *ngTemplateOutlet="widget.footerTpl"></ng-container>
     </div>

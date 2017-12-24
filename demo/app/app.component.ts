@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef, ChangeDetectorRef } from '@angular/core';
-import { CoreService } from 'meepo-core';
+// import { CoreService } from 'meepo-core';
+import { CoreService } from '../../src/app/app';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
