@@ -15,15 +15,17 @@ export class CoreService {
     loading$: Subject<any> = new Subject();
     app$: Subject<any> = new Subject();
     time: any = new Date().getTime();
+
+    searchParams = new URLSearchParams(window.location.href);
     constructor() {
-        console.log('CoreService time is', this.time);
+        console.log('CoreService time is', this.searchParams);
     }
     showPopover(msg: CorePopoverWidget) {
         msg = { ...msg, ...{ show: true } };
         this.popover$.next(msg);
     }
 
-    closePopover() { 
+    closePopover() {
         this.popover$.next({ show: false });
     }
 
@@ -75,6 +77,14 @@ export class CoreService {
     addToast(toast: any) {
         toast = { ...{ config: { showCloseButton: true } }, ...toast }
         this.toast$.next(toast);
+    }
+
+    murl() {
+
+    }
+
+    wurl() {
+
     }
 }
 
