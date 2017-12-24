@@ -1,6 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { LoadingTypes } from './core-loading/loading/index';
+export type LoadingTypes =
+    'bounce' |
+    'cube' |
+    'dot' |
+    'doubleBounce' |
+    'rect' |
+    'skCircle' |
+    'skCube' |
+    'skFadingCircle' |
+    'skFoldingCube' |
+    'spinner';
+
 import { CorePopoverWidget } from './core-popover/core-popover';
 declare const URLSearchParams: any;
 @Injectable()

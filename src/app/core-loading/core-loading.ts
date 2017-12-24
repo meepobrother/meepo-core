@@ -1,8 +1,18 @@
 import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { CoreService } from '../core.service';
-import * as config from './loading/index';
 import { DOCUMENT } from '@angular/common';
-
+export type LoadingTypes =
+    'bounce' |
+    'cube' |
+    'dot' |
+    'doubleBounce' |
+    'rect' |
+    'skCircle' |
+    'skCube' |
+    'skFadingCircle' |
+    'skFoldingCube' |
+    'spinner';
+import * as config from '../loading/index';
 @Component({
     selector: 'core-loading',
     templateUrl: './core-loading.html',
@@ -17,7 +27,7 @@ export class CoreLoadingComponent {
 
     inited: boolean = false;
     loadingElement: any;
-    loadingName: config.LoadingTypes = 'skCube';
+    loadingName: LoadingTypes = 'skCube';
 
     constructor(
         public core: CoreService,
@@ -36,7 +46,7 @@ export class CoreLoadingComponent {
         });
     }
 
-    createByName(name: config.LoadingTypes) {
+    createByName(name: LoadingTypes) {
         // html
         this.loadingElement = this.document.createElement('div');
         this.loadingElement.innerHTML = config[name].html;
@@ -55,7 +65,7 @@ export class CoreLoadingComponent {
     }
 
     showLoading() {
-        if(!this.loadingElement){
+        if (!this.loadingElement) {
             this.createByName(this.loadingName);
         }
     }

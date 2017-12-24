@@ -37,7 +37,6 @@ import { XscrollModule } from 'meepo-xscroll';
     ]
 })
 export class MeepoCoreModule {
-
     constructor( @Optional() @SkipSelf() parentModule: MeepoCoreModule) {
         if (parentModule) {
             throw new Error(
