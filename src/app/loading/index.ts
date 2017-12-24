@@ -1,13 +1,13 @@
-export { bounce } from './bounce';
-export { cube } from './cube';
-export { dot } from './dot';
-export { doubleBounce } from './doubleBounce';
-export { rect } from './rect';
-export { skCircle } from './skCircle';
-export { skCube } from './skCube';
-export { skFadingCircle } from './skFadingCircle';
-export { skFoldingCube } from './skFoldingCube';
-export { spinner } from './spinner';
+import { bounce } from './bounce';
+import { cube } from './cube';
+import { dot } from './dot';
+import { doubleBounce } from './doubleBounce';
+import { rect } from './rect';
+import { skCircle } from './skCircle';
+import { skCube } from './skCube';
+import { skFadingCircle } from './skFadingCircle';
+import { skFoldingCube } from './skFoldingCube';
+import { spinner } from './spinner';
 
 
 export type LoadingTypes =
@@ -21,3 +21,16 @@ export type LoadingTypes =
     'skFadingCircle' |
     'skFoldingCube' |
     'spinner';
+
+export const Loadings = {
+    spinner: spinner,
+    skFoldingCube: skFoldingCube,
+    skFadingCircle: skFadingCircle,
+    skCube: skCube,
+    skCircle: skCircle,
+    rect: rect,
+    doubleBounce: doubleBounce,
+    dot: dot,
+    cube: cube,
+    bounce: bounce
+};

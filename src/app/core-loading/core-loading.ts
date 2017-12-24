@@ -1,18 +1,7 @@
 import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { CoreService } from '../core.service';
 import { DOCUMENT } from '@angular/common';
-export type LoadingTypes =
-    'bounce' |
-    'cube' |
-    'dot' |
-    'doubleBounce' |
-    'rect' |
-    'skCircle' |
-    'skCube' |
-    'skFadingCircle' |
-    'skFoldingCube' |
-    'spinner';
-import * as config from '../loading/index';
+import { Loadings, LoadingTypes } from '../loading/index';
 @Component({
     selector: 'core-loading',
     templateUrl: './core-loading.html',
@@ -49,7 +38,7 @@ export class CoreLoadingComponent {
     createByName(name: LoadingTypes) {
         // html
         this.loadingElement = this.document.createElement('div');
-        this.loadingElement.innerHTML = config[name].html;
+        this.loadingElement.innerHTML = LoadingTypes[name].html;
         this.loadingElement.className = 'meepo-loading';
         this.loadingElement.id = 'meepo-loading';
         this.document.body.appendChild(this.loadingElement);
