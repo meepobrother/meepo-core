@@ -36,6 +36,14 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
     get widget() {
         return this._widget;
     }
+
+    @Input()
+    set show(val: boolean) {
+        this._widget = { ...this._widget, ...{ show: val } }
+    }
+    get show() {
+        return this._widget.show;
+    }
     list: any[] = [];
     constructor(
         public core: CoreService,
