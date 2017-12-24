@@ -7,7 +7,7 @@
     z-index: 999;
     background-color: #efefef;
     flex-direction: column;
-    display: block;
+    display: none;
     visibility: hidden;
     &.shown{
         display: flex;
