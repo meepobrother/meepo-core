@@ -3534,9 +3534,9 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
-meepo-xscroll@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/meepo-xscroll/-/meepo-xscroll-1.2.1.tgz#50cedbca879d13e965aea8053e38d374060c9368"
+meepo-xscroll@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/meepo-xscroll/-/meepo-xscroll-1.2.5.tgz#7cb089bbbefa3b0d1068001d075728a5e100cb1d"
   dependencies:
     "@angular/common" "^5.1.0"
     "@angular/core" "^5.1.0"
