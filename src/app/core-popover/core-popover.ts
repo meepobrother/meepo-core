@@ -30,6 +30,7 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
     @Input()
     set widget(val: CorePopoverWidget) {
         this._widget = { ...this._widget, ...val };
+        console.log(this._widget);
     }
     get widget() { 
         return this._widget;
