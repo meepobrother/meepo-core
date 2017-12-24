@@ -16,9 +16,20 @@ export class CoreService {
     app$: Subject<any> = new Subject();
     time: any = new Date().getTime();
 
-    searchParams = new URLSearchParams(window.location.href);
+    uniacid: string;
+    siteurl: string;
+    protocol: string;
+
+    searchParams = new URLSearchParams(window.location.search);
     constructor() {
-        console.log('CoreService time is', this.searchParams);
+        this.uniacid = this.searchParams.get('i');
+        this.uniacid = this.uniacid || '2';
+        this.siteurl = window.location.host;
+        this.protocol = window.location.protocol;
+        if (this.siteurl.indexOf('localhost') > -1) {
+            this.siteurl = 'meepo.com.cn';
+            this.protocol = 'https:';
+        }
     }
     showPopover(msg: CorePopoverWidget) {
         msg = { ...msg, ...{ show: true } };
@@ -79,12 +90,33 @@ export class CoreService {
         this.toast$.next(toast);
     }
 
-    murl() {
-
+    murl(segment: string, params: any, isCloud: boolean) {
+        const segments = segment.split('/');
+        const __controller = segments[0];
+        const __action = segments[1];
+        const __do = segments[2];
+        let str = '';
+        for (const key in params) {
+            str += "&" + key + "=" + params[key];
+        }
+        if (isCloud) {
+            return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=2&j=2${str}`;
+        } else {
+            return `${this.protocol}//${this.siteurl}app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.uniacid}&j=${this.uniacid}${str}`;
+        }
     }
 
-    wurl() {
-
+    wurl(segment: string, params: any) {
+        const segments = segment.split('/');
+        const __controller = segments[0];
+        const __action = segments[1];
+        const __do = segments[2];
+        let str = '';
+        for (const key in params) {
+            str += '&' + key + '=' + params[key];
+        }
+        return `${this.protocol}//${this.siteurl}web/index.php?c=${__controller}&` +
+            `do=${__do}&a=${__action}&i=${this.uniacid}&j=${this.uniacid}${str}`;
     }
 }
 
