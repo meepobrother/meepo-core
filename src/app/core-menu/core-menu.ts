@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CoreService } from '../core.service';
 
 @Component({
     selector: 'core-menu',
     templateUrl: './core-menu.html',
     styleUrls: ['./core-menu.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CoreMenuComponent implements OnInit {
@@ -13,13 +14,41 @@ export class CoreMenuComponent implements OnInit {
         avatar: '',
         nickname: '米波网络科技',
         tag: '普通会员',
-        show: false
+        show: false,
+        items: {
+            task: {
+                show: true
+            },
+            coach: {
+                show: true
+            },
+            shoper: {
+                show: true
+            },
+            active: {
+                show: true
+            },
+            money: {
+                show: true
+            },
+            kefu: {
+                show: true
+            },
+            setting: {
+                show: true
+            }
+        }
     };
     constructor(
-        public core: CoreService
+        public core: CoreService,
+        public cd: ChangeDetectorRef
     ) {
         this.core.menu$.subscribe(res => {
             this.widget = { ...this.widget, ...res };
+            if(res && res['items']){
+                this.widget.items = {...this.widget.items, ...res['items']}
+            }
+            this.cd.detectChanges();
         });
     }
 
