@@ -23,6 +23,9 @@ export class CoreToastComponent {
         this.core.toast$.subscribe((res: any) => {
             if (res) {
                 res = { ...res, ...{ pocent: 100 } };
+                if (res.position) {
+                    this.position = 'toast-' + res.position;
+                }
                 if (this.position.indexOf('top') > 0) {
                     this.toasts = [...this.toasts, res];
                 } else {
