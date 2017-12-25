@@ -100,11 +100,14 @@ export class CoreService {
         for (const key in params) {
             str += "&" + key + "=" + params[key];
         }
+        let url: string;
         if (isCloud) {
-            return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=2&j=2${str}`;
+            url = `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=2&j=2${str}`;
         } else {
-            return `${this.protocol}//${this.siteurl}/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.uniacid}&j=${this.uniacid}${str}`;
+            url = `${this.protocol}//${this.siteurl}/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.uniacid}&j=${this.uniacid}${str}`;
         }
+        console.log(url);
+        return url;
     }
 
     wurl(segment: string, params: any) {
