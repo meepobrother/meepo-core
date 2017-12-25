@@ -124,7 +124,8 @@ export class CoreService {
 
 export interface LoadingWidget {
     show?: boolean;
-    type?: LoadingTypes
+    type?: LoadingTypes,
+    full?: boolean;
 }
 
 declare const window: any;
