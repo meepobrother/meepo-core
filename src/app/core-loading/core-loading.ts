@@ -1,4 +1,4 @@
-import { Component, Inject, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { CoreService } from '../core.service';
 import { DOCUMENT } from '@angular/common';
 import { Loadings, LoadingTypes } from '../loading/index';
@@ -22,10 +22,12 @@ export class CoreLoadingComponent {
 
     constructor(
         public core: CoreService,
-        @Inject(DOCUMENT) public document: any
+        @Inject(DOCUMENT) public document: any,
+        public cd: ChangeDetectorRef
     ) {
         this.core.loading$.subscribe((res: any) => {
             this.widget = { ...this.widget, ...res };
+            this.cd.detectChanges();
         });
     }
 }
