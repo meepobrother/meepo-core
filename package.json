@@ -1,6 +1,6 @@
 {
     "name": "meepo-core",
-    "version": "2.9.5",
+    "version": "2.9.6",
     "description": "核心功能",
     "main": "./bundles/meepo.umd.js",
     "module": "./esm5/meepo.js",
@@ -37,7 +37,6 @@
         "node-sass": "^4.7.2",
         "nodemon": "^1.13.3",
         "pm2": "^2.9.1",
-        "redis": "^2.8.0",
         "rollup": "^0.52.1",
         "rollup-plugin-node-resolve": "^3.0.0",
         "rollup-plugin-replace": "^2.0.0",
@@ -50,11 +49,11 @@
         "@angular/common": "5.2.0-beta.1",
         "@angular/core": "5.2.0-beta.1",
         "@angular/platform-browser": "5.2.0-beta.1",
-        "meepo-xscroll": "^1.2.9",
-        "mysql": "^2.15.0",
+        "meepo-xscroll": ">=1.2.9",
         "reflect-metadata": "^0.1.10",
         "rxjs": "^5.5.5",
-        "typeorm": "^0.1.9",
         "zone.js": "0.8.4"
-    }
+    },
+    "peerDependencies": {},
+    "bundledDependencies": {}
 }
