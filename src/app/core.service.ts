@@ -35,7 +35,7 @@ export class CoreService {
             this.siteurl = 'meepo.com.cn';
             this.protocol = 'https:';
         }
-
+        console.log('core service',this.time);
     }
     showPopover(msg: CorePopoverWidget) {
         msg = { ...msg, ...{ show: true } };
