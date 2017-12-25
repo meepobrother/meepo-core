@@ -31,6 +31,11 @@ export class CoreService {
             this.siteurl = 'meepo.com.cn';
             this.protocol = 'https:';
         }
+        if (this.protocol.indexOf('file') > -1) { 
+            this.siteurl = 'meepo.com.cn';
+            this.protocol = 'https:';
+        }
+
     }
     showPopover(msg: CorePopoverWidget) {
         msg = { ...msg, ...{ show: true } };
