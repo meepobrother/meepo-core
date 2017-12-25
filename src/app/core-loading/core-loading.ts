@@ -12,7 +12,8 @@ import { Loadings, LoadingTypes } from '../loading/index';
 export class CoreLoadingComponent {
     widget: any = {
         show: false,
-        type: 'weui'
+        type: 'skCube',
+        full: true
     };
 
     inited: boolean = false;
@@ -25,45 +26,6 @@ export class CoreLoadingComponent {
     ) {
         this.core.loading$.subscribe((res: any) => {
             this.widget = { ...this.widget, ...res };
-            if (this.widget.show) {
-                if (this.widget.type != 'weui') {
-                    this.loadingName = this.widget.type || 'skCube';
-                    this.showLoading();
-                }
-            } else {
-                this.hideLoading();
-            }
         });
-    }
-
-    createByName(name: LoadingTypes) {
-        // html
-        this.loadingElement = this.document.createElement('div');
-        this.loadingElement.innerHTML = Loadings[name].html;
-        this.loadingElement.className = 'meepo-loading';
-        this.loadingElement.id = 'meepo-loading';
-        this.document.body.appendChild(this.loadingElement);
-        // css
-        let styleStr = this.document.createElement('style');
-        styleStr.innerHTML = Loadings[name].css;
-        styleStr.type = 'text/css';
-        this.document.head.appendChild(styleStr);
-    }
-
-    setLoading(name: LoadingTypes) {
-        this.loadingName = name;
-    }
-
-    showLoading() {
-        if (!this.loadingElement) {
-            this.createByName(this.loadingName);
-        }
-    }
-
-    hideLoading() {
-        if (this.loadingElement) {
-            this.document.body.removeChild(this.loadingElement);
-            this.loadingElement = null;
-        }
     }
 }
