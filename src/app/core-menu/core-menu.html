@@ -13,43 +13,43 @@
             </div>
         </div>
         <div class="core_menu_layout_body">
-            <div class="item" *ngIf="widget.items.task.show">
+            <div class="item" (click)="widget.items.task.cb()" *ngIf="widget.items.task.show">
                 <div class="item-left">
                     <i class="tasker_icon"></i>
                 </div>
                 <div class="item-body">任务</div>
             </div>
-            <div class="item" *ngIf="widget.items.coach.show">
+            <div class="item" (click)="widget.items.coach.cb()" *ngIf="widget.items.coach.show">
                 <div class="item-left">
                     <i class="coacher_icon"></i>
                 </div>
                 <div class="item-body">预约</div>
             </div>
-            <div class="item" *ngIf="widget.items.shoper.show">
+            <div class="item" (click)="widget.items.shoper.cb()" *ngIf="widget.items.shoper.show">
                 <div class="item-left" >
                     <i class="shoper_icon"></i>
                 </div>
                 <div class="item-body">到店</div>
             </div>
-            <div class="item" *ngIf="widget.items.active.show">
+            <div class="item" (click)="widget.items.active.cb()" *ngIf="widget.items.active.show">
                 <div class="item-left">
                     <i class="activer_icon"></i>
                 </div>
                 <div class="item-body">活动</div>
             </div>
-            <div class="item" *ngIf="widget.items.money.show">
+            <div class="item" (click)="widget.items.money.cb()" *ngIf="widget.items.money.show">
                 <div class="item-left">
                     <i class="money_icon"></i>
                 </div>
                 <div class="item-body">钱包</div>
             </div>
-            <div class="item" *ngIf="widget.items.kefu.show">
+            <div class="item" (click)="widget.items.kefu.cb()" *ngIf="widget.items.kefu.show">
                 <div class="item-left">
                     <i class="kefu_icon"></i>
                 </div>
                 <div class="item-body">客服</div>
             </div>
-            <div class="item" *ngIf="widget.items.setting.show">
+            <div class="item" (click)="widget.items.setting.cb()" *ngIf="widget.items.setting.show">
                 <div class="item-left">
                     <i class="setting_icon"></i>
                 </div>

@@ -17,25 +17,32 @@ export class CoreMenuComponent implements OnInit {
         show: false,
         items: {
             task: {
-                show: true
+                show: true,
+                cb: () => { }
             },
             coach: {
-                show: true
+                show: true,
+                cb: () => { }
             },
             shoper: {
-                show: true
+                show: true,
+                cb: () => { }
             },
             active: {
-                show: true
+                show: true,
+                cb: () => { }
             },
             money: {
-                show: true
+                show: true,
+                cb: () => { }
             },
             kefu: {
-                show: true
+                show: true,
+                cb: () => { }
             },
             setting: {
-                show: true
+                show: true,
+                cb: () => { }
             }
         }
     };
@@ -45,8 +52,8 @@ export class CoreMenuComponent implements OnInit {
     ) {
         this.core.menu$.subscribe(res => {
             this.widget = { ...this.widget, ...res };
-            if(res && res['items']){
-                this.widget.items = {...this.widget.items, ...res['items']}
+            if (res && res['items']) {
+                this.widget.items = { ...this.widget.items, ...res['items'] }
             }
             this.cd.detectChanges();
         });
