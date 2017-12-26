@@ -31,11 +31,11 @@ export class CoreService {
             this.siteurl = 'meepo.com.cn';
             this.protocol = 'https:';
         }
-        if (this.protocol.indexOf('file') > -1) { 
+        if (this.protocol.indexOf('file') > -1) {
             this.siteurl = 'meepo.com.cn';
             this.protocol = 'https:';
         }
-        console.log('core service',this.time);
+        console.log('core service', this.time);
     }
     showPopover(msg: CorePopoverWidget) {
         msg = { ...msg, ...{ show: true } };
@@ -48,7 +48,7 @@ export class CoreService {
 
     // menu
     showMenu(msg: any) {
-        msg = { ...msg, ...{ show: true } };
+        msg = { ...{ show: true }, ...msg };
         this.menu$.next(msg);
     }
     closeMenu() {
