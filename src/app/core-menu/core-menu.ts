@@ -54,8 +54,9 @@ export class CoreMenuComponent implements OnInit {
             if (res && res['items']) {
                 this.widget.items = { ...this.widget.items, ...res['items'] }
             }
-            res['items'] = null;
+            delete res['items'];
             this.widget = { ...this.widget, ...res };
+            console.log(this.widget);
             this.cd.detectChanges();
         });
     }
