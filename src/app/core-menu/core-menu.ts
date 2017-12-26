@@ -51,10 +51,7 @@ export class CoreMenuComponent implements OnInit {
         public cd: ChangeDetectorRef
     ) {
         this.core.menu$.subscribe(res => {
-            if (res && res['items']) {
-                this.widget.items = { ...this.widget.items, ...res['items'] }
-            }
-            delete res['items'];
+            res['items'] = { ...this.widget.items, ...res['items'] }
             this.widget = { ...this.widget, ...res };
             console.log(this.widget);
             this.cd.detectChanges();
