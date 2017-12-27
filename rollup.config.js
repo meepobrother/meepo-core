@@ -231,6 +231,7 @@ let globals = {
     'rxjs/operators/throttleTime': 'Rx.Observable.prototype',
     'rxjs/operators/tap': 'Rx.Observable.prototype',
     'meepo-xscroll': 'meepo-xscroll',
+    'meepo-popover': 'meepo-popover'
 };
 
 let plugins = [

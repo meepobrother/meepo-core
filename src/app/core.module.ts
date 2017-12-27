@@ -23,6 +23,7 @@ const CoreComponents: any[] = [
 
 import { MeepoCoreServiceModule } from './core-service.module';
 import { XscrollModule } from 'meepo-xscroll';
+import { PopoverModule } from 'meepo-popover';
 @NgModule({
     declarations: [
         ...CoreComponents
@@ -30,7 +31,8 @@ import { XscrollModule } from 'meepo-xscroll';
     imports: [
         CommonModule,
         MeepoCoreServiceModule,
-        XscrollModule
+        XscrollModule,
+        PopoverModule
     ],
     exports: [
         ...CoreComponents

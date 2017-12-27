@@ -1,6 +1,6 @@
 {
     "name": "meepo-core",
-    "version": "3.0.4",
+    "version": "3.0.6",
     "description": "核心功能",
     "main": "./bundles/meepo.umd.js",
     "module": "./esm5/meepo.js",
@@ -49,6 +49,7 @@
         "@angular/common": "5.2.0-beta.1",
         "@angular/core": "5.2.0-beta.1",
         "@angular/platform-browser": "5.2.0-beta.1",
+        "meepo-popover": ">=1.0.0",
         "meepo-xscroll": ">=1.2.9",
         "reflect-metadata": "^0.1.10",
         "rxjs": "^5.5.5",
