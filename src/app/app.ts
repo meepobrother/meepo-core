@@ -11,7 +11,6 @@ export { MeepoCoreModule } from './core.module';
 export { MeepoCoreServiceModule } from './core-service.module';
 
 export { CoreService } from './core.service';
-export { DateTimeService } from './date-time';
-export { DomService } from './dom';
+// export { DateTimeService } from './date-time';
+// export { DomService } from './dom';
 export { UtilService } from './util.service';
-export { QueryParams } from './query-params';
