@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { LoadingTypes } from './loading/index';
 import { CorePopoverWidget } from './core-popover/core-popover';
 declare const URLSearchParams: any;
 @Injectable()
@@ -111,7 +110,6 @@ export class CoreService {
         } else {
             url = `${this.protocol}//${this.siteurl}/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.uniacid}&j=${this.uniacid}${str}`;
         }
-        console.log(url);
         return url;
     }
 
@@ -132,7 +130,7 @@ export class CoreService {
 
 export interface LoadingWidget {
     show?: boolean;
-    type?: LoadingTypes,
+    type?: string,
     full?: boolean;
 }
 

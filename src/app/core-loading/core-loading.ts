@@ -1,7 +1,6 @@
 import { Component, Inject, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { CoreService } from '../core.service';
 import { DOCUMENT } from '@angular/common';
-import { Loadings, LoadingTypes } from '../loading/index';
 
 @Component({
     selector: 'core-loading',
@@ -18,7 +17,7 @@ export class CoreLoadingComponent {
 
     inited: boolean = false;
     loadingElement: any;
-    loadingName: LoadingTypes = 'skCube';
+    loadingName: string = 'skCube';
 
     constructor(
         public core: CoreService,

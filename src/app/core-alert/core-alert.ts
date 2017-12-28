@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CoreService } from '../core.service';
 @Component({
     selector: 'core-alert',
     templateUrl: './core-alert.html',
-    styleUrls: ['./core-alert.scss']
+    styleUrls: ['./core-alert.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class CoreAlertComponent {
     widget: AlertWidget = {

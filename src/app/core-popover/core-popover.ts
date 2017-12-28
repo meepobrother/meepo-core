@@ -1,7 +1,7 @@
 import {
     Component, OnInit, TemplateRef, ChangeDetectorRef,
     ChangeDetectionStrategy, ViewChild, AfterContentInit, AfterViewInit,
-    Input
+    Input, ViewEncapsulation
 } from '@angular/core';
 import { CoreService } from '../core.service';
 import { XscrollComponent } from 'meepo-xscroll';
@@ -10,7 +10,8 @@ import { XscrollComponent } from 'meepo-xscroll';
     templateUrl: './core-popover.html',
     styleUrls: [
         './core-popover.scss'
-    ]
+    ],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class CorePopoverComponent implements OnInit, AfterViewInit {
