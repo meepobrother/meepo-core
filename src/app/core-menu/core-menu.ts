@@ -21,15 +21,15 @@ export class CoreMenuComponent implements OnInit {
                 cb: () => { }
             },
             coach: {
-                show: true,
+                show: false,
                 cb: () => { }
             },
             shoper: {
-                show: true,
+                show: false,
                 cb: () => { }
             },
             active: {
-                show: true,
+                show: false,
                 cb: () => { }
             },
             money: {
@@ -37,7 +37,7 @@ export class CoreMenuComponent implements OnInit {
                 cb: () => { }
             },
             kefu: {
-                show: true,
+                show: false,
                 cb: () => { }
             },
             setting: {
