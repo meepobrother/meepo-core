@@ -3,7 +3,6 @@ import { getCoreService, CoreService } from './core.service';
 import { UtilService } from './util.service';
 // import { DateTimeService } from './date-time';
 // import { DomService } from './dom';
-
 @NgModule({
     providers: [
         {
