@@ -53,7 +53,6 @@ export class CoreMenuComponent implements OnInit {
         this.core.menu$.subscribe(res => {
             res['items'] = { ...this.widget.items, ...res['items'] }
             this.widget = { ...this.widget, ...res };
-            console.log(this.widget);
             this.cd.detectChanges();
         });
     }
