@@ -51,7 +51,7 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
         public core: CoreService,
         public cd: ChangeDetectorRef
     ) {
-        this.core.popover$.debounceTime(300).subscribe((res: CorePopoverWidget) => {
+        this.core.popover$.subscribe((res: CorePopoverWidget) => {
             console.log(res);
             if (this.online) {
                 this._widget = { ...this._widget, ...res };
