@@ -3,6 +3,7 @@ import {
     ChangeDetectionStrategy, ViewChild, AfterContentInit, AfterViewInit,
     Input, ViewEncapsulation
 } from '@angular/core';
+import 'rxjs/add/operator/takeLast';
 import { CoreService } from '../core.service';
 import { XscrollComponent } from 'meepo-xscroll';
 @Component({
@@ -51,8 +52,7 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
         public core: CoreService,
         public cd: ChangeDetectorRef
     ) {
-        this.core.popover$.subscribe((res: CorePopoverWidget) => {
-            console.log(res);
+        this.core.popover$.takeLast(1).subscribe((res: CorePopoverWidget) => {
             if (this.online) {
                 this._widget = { ...this._widget, ...res };
                 this.list = this._widget.list;
