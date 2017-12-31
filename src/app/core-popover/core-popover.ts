@@ -31,7 +31,6 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
     @Input()
     set widget(val: CorePopoverWidget) {
         this._widget = { ...this._widget, ...val };
-        console.log(this._widget);
         this.cd.detectChanges();
     }
     get widget() {
@@ -52,11 +51,13 @@ export class CorePopoverComponent implements OnInit, AfterViewInit {
         public core: CoreService,
         public cd: ChangeDetectorRef
     ) {
-        this.core.popover$.subscribe((res: CorePopoverWidget) => {
-            if(this.online){
+        this.core.popover$.debounceTime(300).subscribe((res: CorePopoverWidget) => {
+            if (this.online) {
                 this._widget = { ...this._widget, ...res };
                 this.list = this._widget.list;
-                this.xscrollComponent.onEnd();
+                setTimeout(() => {
+                    this.xscrollComponent.onEnd();
+                }, 500);
                 this.cd.detectChanges();
             }
         });
