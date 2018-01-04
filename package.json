@@ -1,6 +1,6 @@
 {
     "name": "meepo-core",
-    "version": "3.2.7",
+    "version": "3.2.8",
     "description": "核心功能",
     "main": "./bundles/meepo.umd.js",
     "module": "./esm5/meepo.js",
